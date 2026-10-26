@@ -5,8 +5,8 @@
 @define-color argvus_fg #E0DEF4;
 @define-color argvus_muted #908CAA;
 @define-color argvus_dim rgba(144, 140, 170, 0.35);
-@define-color argvus_accent #C4A7E7;
-@define-color argvus_accent_alpha rgba(196, 167, 231, 0.54);
+@define-color argvus_accent {{ @accent | hex }};
+@define-color argvus_accent_alpha {{ @accent | alpha(0.54) | rgba }};
 @define-color argvus_border rgba(224, 222, 244, 0.22);
 @define-color argvus_focus rgba(224, 222, 244, 0.58);
 
@@ -84,3 +84,19 @@
 .event-divider {
   color: @argvus_accent_alpha;
 }
+{{#if layout.rounded}}
+.argvus-calendar {
+  border-radius: 4px;
+}
+
+.day-selected,
+.nav-button:hover,
+.add-event:hover,
+.day:hover,
+.event-button:hover,
+.editor-action:hover,
+.editor-entry,
+.event-editor entry {
+  border-radius: 4px;
+}
+{{/if}}
